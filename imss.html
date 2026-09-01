@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>IMSS | Guadalupe Ixcotla</title>
+
+<style>
+
+:root{
+    --fondo:#f6f7f8;
+    --blanco:#fff;
+    --texto:#202a30;
+    --gris:#69747a;
+    --azul:#315b70;
+    --oscuro:#213f4e;
+    --claro:#e8f0f4;
+    --naranja:#d77a46;
+    --borde:#e3e7e9;
+    --sombra:0 18px 45px rgba(30,50,60,.09);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:"Segoe UI",Arial,sans-serif;
+    background:var(--fondo);
+    color:var(--texto);
+    line-height:1.6;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+.contenedor{
+    width:min(1100px,88%);
+    margin:auto;
+}
+
+nav{
+    position:fixed;
+    top:18px;
+    left:50%;
+    transform:translateX(-50%);
+
+    width:min(1080px,92%);
+    height:64px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 20px;
+
+    background:rgba(255,255,255,.92);
+    backdrop-filter:blur(15px);
+
+    border:1px solid #e4e7e9;
+    border-radius:16px;
+
+    box-shadow:0 8px 30px rgba(0,0,0,.07);
+
+    z-index:1000;
+}
+
+.logo{
+    color:var(--oscuro);
+    font-weight:800;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:3px;
+}
+
+nav a{
+    padding:9px 11px;
+    border-radius:9px;
+
+    font-size:13px;
+    font-weight:600;
+}
+
+nav li a:hover,
+nav li a.activo{
+    background:var(--claro);
+}
+
+.menu-toggle{
+    display:none;
+    align-items:center;
+    justify-content:center;
+
+    width:38px;
+    height:38px;
+
+    background:var(--claro);
+    color:var(--oscuro);
+
+    border:none;
+    border-radius:9px;
+
+    font-size:18px;
+    cursor:pointer;
+}
+
+.hero{
+    min-height:600px;
+
+    display:flex;
+    align-items:flex-end;
+
+    padding:145px 0 75px;
+
+    color:white;
+
+    background:
+    linear-gradient(
+        90deg,
+        rgba(20,45,57,.94),
+        rgba(20,45,57,.68),
+        rgba(20,45,57,.20)
+    ),
+    url("https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1800&q=85")
+    center/cover no-repeat;
+}
+
+.hero div{
+    max-width:680px;
+}
+
+.hero span{
+    display:inline-block;
+
+    margin-bottom:15px;
+
+    padding:7px 12px;
+
+    border:1px solid rgba(255,255,255,.2);
+    border-radius:30px;
+
+    background:rgba(255,255,255,.12);
+
+    font-size:12px;
+}
+
+.hero h1{
+    margin-bottom:17px;
+
+    font-size:clamp(48px,7vw,72px);
+    line-height:1;
+
+    letter-spacing:-3px;
+}
+
+.hero p{
+    color:#dce6ea;
+    font-size:18px;
+}
+
+.aviso{
+    margin-top:20px;
+
+    color:#c7d2d7;
+
+    font-size:11px !important;
+}
+
+.intro{
+    padding:80px 0 45px;
+}
+
+.intro h2{
+    max-width:760px;
+
+    margin-bottom:15px;
+
+    color:var(--oscuro);
+
+    font-size:42px;
+}
+
+.intro p{
+    max-width:720px;
+
+    color:var(--gris);
+}
+
+.comparacion{
+    padding:35px 0 90px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+}
+
+.card{
+    padding:32px;
+
+    background:white;
+
+    border:1px solid var(--borde);
+    border-radius:22px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.04);
+}
+
+.card-cabecera{
+    display:flex;
+    align-items:center;
+    gap:15px;
+
+    margin-bottom:20px;
+}
+
+.icono{
+    width:46px;
+    height:46px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:var(--claro);
+    color:var(--azul);
+
+    border-radius:13px;
+
+    font-weight:800;
+}
+
+.card h3{
+    color:var(--oscuro);
+
+    font-size:27px;
+}
+
+.card > p{
+    margin-bottom:20px;
+
+    color:var(--gris);
+}
+
+.card ul{
+    list-style:none;
+}
+
+.card li{
+    padding:11px 0;
+
+    border-bottom:1px solid var(--borde);
+
+    color:#4c5960;
+
+    font-size:14px;
+}
+
+.card li::before{
+    content:"✓";
+
+    margin-right:9px;
+
+    color:var(--azul);
+
+    font-weight:bold;
+}
+
+.bienestar{
+    background:var(--oscuro);
+    color:white;
+}
+
+.bienestar h3{
+    color:white;
+}
+
+.bienestar > p,
+.bienestar li{
+    color:#d0dce1;
+}
+
+.bienestar li{
+    border-color:rgba(255,255,255,.08);
+}
+
+.bienestar .icono{
+    background:rgba(255,255,255,.1);
+    color:white;
+}
+
+.nota{
+    padding:0 0 90px;
+}
+
+.nota-box{
+    display:grid;
+    grid-template-columns:.7fr 1.3fr;
+    gap:30px;
+
+    padding:30px;
+
+    background:#f1e9e4;
+
+    border-radius:20px;
+}
+
+.nota-box h2{
+    color:#845034;
+
+    font-size:27px;
+}
+
+.nota-box p{
+    color:#6e625c;
+}
+
+.siguiente{
+    padding:0 0 90px;
+}
+
+.siguiente-box{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    gap:20px;
+
+    padding:25px;
+
+    background:white;
+
+    border:1px solid var(--borde);
+    border-radius:18px;
+}
+
+.siguiente-box span{
+    color:var(--gris);
+
+    font-size:13px;
+}
+
+.siguiente-box strong{
+    display:block;
+
+    color:var(--oscuro);
+
+    font-size:20px;
+}
+
+.btn{
+    padding:12px 18px;
+
+    background:var(--azul);
+    color:white;
+
+    border-radius:10px;
+
+    font-size:13px;
+    font-weight:700;
+}
+
+footer{
+    display:flex;
+    justify-content:space-between;
+
+    padding:23px 6%;
+
+    background:#17242b;
+    color:#88979e;
+
+    font-size:12px;
+}
+
+.reveal{
+    opacity:0;
+    transform:translateY(25px);
+
+    transition:.7s;
+}
+
+.reveal.visible{
+    opacity:1;
+    transform:none;
+}
+
+@media(max-width:800px){
+
+    .menu-toggle{
+        display:flex;
+    }
+
+    nav ul{
+        position:absolute;
+        top:calc(100% + 10px);
+        left:0;
+        right:0;
+
+        flex-direction:column;
+        align-items:stretch;
+        gap:4px;
+
+        padding:12px;
+
+        background:rgba(255,255,255,.97);
+        backdrop-filter:blur(14px);
+
+        border:1px solid #e4e7e9;
+        border-radius:16px;
+
+        box-shadow:0 8px 30px rgba(0,0,0,.1);
+
+        display:none;
+    }
+
+    nav ul.abierto{
+        display:flex;
+    }
+
+    nav a{
+        padding:12px 14px;
+        display:block;
+    }
+
+    .grid,
+    .nota-box{
+        grid-template-columns:1fr;
+    }
+
+    .siguiente-box{
+        align-items:flex-start;
+        flex-direction:column;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+
+<nav>
+
+<a href="index.html" class="logo">
+Guadalupe Ixcotla
+</a>
+
+<ul>
+<li><a href="index.html">Inicio</a></li>
+<li><a href="proyecto.html">Proyecto</a></li>
+<li><a class="activo" href="imss.html">IMSS</a></li>
+<li><a href="asambleas.html">Asambleas</a></li>
+<li><a href="julio.html">5 de julio</a></li>
+<li><a href="barranca.html">Barranca</a></li>
+<li><a href="presidencia.html">Presidencia</a></li>
+</ul>
+
+<button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+☰
+</button>
+
+</nav>
+
+
+<header class="hero">
+
+<div class="contenedor">
+
+<div>
+
+<span>
+Servicios de salud
+</span>
+
+<h1>
+IMSS e<br>
+IMSS-Bienestar
+</h1>
+
+<p>
+Aunque sus nombres son parecidos,
+no funcionan exactamente de la misma manera
+ni atienden principalmente a la misma población.
+</p>
+
+<p class="aviso">
+Imagen ilustrativa de atención médica.
+</p>
+
+</div>
+
+</div>
+
+</header>
+
+
+<section class="intro">
+
+<div class="contenedor reveal">
+
+<h2>
+¿Cuál es la diferencia?
+</h2>
+
+<p>
+El IMSS ordinario está relacionado principalmente
+con personas derechohabientes, mientras que
+IMSS-Bienestar se orienta a población
+que no cuenta con seguridad social.
+</p>
+
+</div>
+
+</section>
+
+
+<section class="comparacion">
+
+<div class="contenedor grid">
+
+
+<div class="card reveal">
+
+<div class="card-cabecera">
+
+<div class="icono">
+01
+</div>
+
+<h3>
+IMSS ordinario
+</h3>
+
+</div>
+
+<p>
+Atiende principalmente a trabajadores asegurados,
+sus familiares registrados y pensionados.
+</p>
+
+<ul>
+<li>Medicina familiar</li>
+<li>Consulta preventiva</li>
+<li>Medicamentos</li>
+<li>Estudios de diagnóstico</li>
+<li>Referencia con especialistas</li>
+<li>Atención hospitalaria según corresponda</li>
+</ul>
+
+</div>
+
+
+<div class="card bienestar reveal">
+
+<div class="card-cabecera">
+
+<div class="icono">
+02
+</div>
+
+<h3>
+IMSS-Bienestar
+</h3>
+
+</div>
+
+<p>
+Está dirigido principalmente a personas
+que no cuentan con seguridad social.
+</p>
+
+<ul>
+<li>Consulta médica</li>
+<li>Prevención y seguimiento</li>
+<li>Medicamentos disponibles</li>
+<li>Servicios hospitalarios</li>
+<li>Atención comunitaria</li>
+<li>Atención sin afiliación ordinaria al IMSS</li>
+</ul>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<section class="nota">
+
+<div class="contenedor">
+
+<div class="nota-box reveal">
+
+<h2>
+¿Y qué pasa con la UMF Plus de Ixcotla?
+</h2>
+
+<p>
+La UMF Plus anunciada forma parte del proyecto del IMSS.
+Este modelo busca fortalecer la atención primaria
+de la población derechohabiente. Durante las consultas
+también se habló de ampliar el acceso bajo
+el concepto de Salud Universal.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="siguiente">
+
+<div class="contenedor">
+
+<div class="siguiente-box">
+
+<div>
+
+<span>
+Siguiente tema
+</span>
+
+<strong>
+¿Cómo se realizaron las asambleas?
+</strong>
+
+</div>
+
+<a href="asambleas.html" class="btn">
+Ver asambleas →
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<footer>
+
+<span>
+Guadalupe Ixcotla
+</span>
+
+<span>
+Información comunitaria · 2026
+</span>
+
+</footer>
+
+
+<script>
+
+const menuToggle =
+document.getElementById("menuToggle");
+
+const menuLista =
+document.querySelector("nav ul");
+
+menuToggle.addEventListener("click", () => {
+menuLista.classList.toggle("abierto");
+});
+
+menuLista.querySelectorAll("a").forEach(enlace => {
+enlace.addEventListener("click", () => {
+menuLista.classList.remove("abierto");
+});
+});
+
+
+const elementos =
+document.querySelectorAll(".reveal");
+
+const observer =
+new IntersectionObserver(
+(entries)=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+entry.target.classList.add("visible");
+}
+
+});
+
+},
+{
+threshold:.12
+}
+);
+
+elementos.forEach(elemento=>{
+observer.observe(elemento);
+});
+
+</script>
+
+</body>
+</html>

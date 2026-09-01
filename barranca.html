@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Barranca Briones | Guadalupe Ixcotla</title>
+
+<style>
+
+:root{
+    --fondo:#f3f6f4;
+    --blanco:#ffffff;
+    --texto:#25312c;
+    --gris:#69746f;
+    --verde:#45675a;
+    --verde-oscuro:#304b40;
+    --verde-claro:#e5eee9;
+    --azul:#315b70;
+    --naranja:#d57a45;
+    --borde:#dfe7e2;
+    --sombra:0 18px 45px rgba(35,60,48,.09);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:"Segoe UI",Arial,sans-serif;
+    background:var(--fondo);
+    color:var(--texto);
+    line-height:1.6;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+.contenedor{
+    width:min(1100px,88%);
+    margin:auto;
+}
+
+nav{
+    position:fixed;
+    top:18px;
+    left:50%;
+    transform:translateX(-50%);
+
+    width:min(1080px,92%);
+    height:64px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 20px;
+
+    background:rgba(255,255,255,.92);
+    backdrop-filter:blur(15px);
+
+    border:1px solid #e0e6e2;
+    border-radius:16px;
+
+    box-shadow:0 8px 30px rgba(0,0,0,.07);
+
+    z-index:1000;
+}
+
+.logo{
+    color:var(--verde-oscuro);
+    font-weight:800;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:3px;
+}
+
+nav a{
+    padding:9px 11px;
+
+    border-radius:9px;
+
+    font-size:13px;
+    font-weight:600;
+}
+
+nav li a:hover,
+nav li a.activo{
+    background:var(--verde-claro);
+}
+
+.menu-toggle{
+    display:none;
+    align-items:center;
+    justify-content:center;
+
+    width:38px;
+    height:38px;
+
+    background:var(--verde-claro);
+    color:var(--verde-oscuro);
+
+    border:none;
+    border-radius:9px;
+
+    font-size:18px;
+    cursor:pointer;
+}
+
+.hero{
+    min-height:650px;
+
+    display:flex;
+    align-items:flex-end;
+
+    padding:150px 0 80px;
+
+    color:white;
+
+    background:
+    linear-gradient(
+        90deg,
+        rgba(30,54,45,.92),
+        rgba(30,54,45,.60),
+        rgba(30,54,45,.15)
+    ),
+    url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1800&q=85")
+    center/cover no-repeat;
+}
+
+.hero-contenido{
+    max-width:670px;
+}
+
+.hero span{
+    display:inline-block;
+
+    margin-bottom:15px;
+
+    padding:7px 12px;
+
+    background:rgba(255,255,255,.13);
+
+    border:1px solid rgba(255,255,255,.20);
+    border-radius:30px;
+
+    font-size:12px;
+}
+
+.hero h1{
+    margin-bottom:17px;
+
+    font-size:clamp(50px,8vw,80px);
+    line-height:.95;
+
+    letter-spacing:-3px;
+}
+
+.hero p{
+    color:#e0e9e5;
+    font-size:18px;
+}
+
+.hero .aviso{
+    margin-top:18px;
+
+    color:#cad7d1;
+
+    font-size:11px;
+}
+
+.intro{
+    padding:85px 0 45px;
+}
+
+.intro-grid{
+    display:grid;
+    grid-template-columns:.8fr 1.2fr;
+    gap:50px;
+
+    align-items:center;
+}
+
+.intro-destacado{
+    padding:30px;
+
+    background:var(--verde-oscuro);
+    color:white;
+
+    border-radius:21px;
+}
+
+.intro-destacado h2{
+    margin-bottom:10px;
+
+    font-size:28px;
+}
+
+.intro-destacado p{
+    color:#d1ddd7;
+}
+
+.intro-texto small{
+    color:var(--naranja);
+
+    text-transform:uppercase;
+    letter-spacing:1px;
+
+    font-weight:800;
+}
+
+.intro-texto h2{
+    margin:9px 0 14px;
+
+    color:var(--verde-oscuro);
+
+    font-size:40px;
+    line-height:1.1;
+}
+
+.intro-texto p{
+    color:var(--gris);
+}
+
+.riesgos{
+    padding:45px 0 90px;
+}
+
+.riesgos h2{
+    margin-bottom:30px;
+
+    color:var(--verde-oscuro);
+
+    font-size:39px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:16px;
+}
+
+.card{
+    padding:24px;
+
+    background:white;
+
+    border:1px solid var(--borde);
+    border-radius:19px;
+
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    box-shadow:var(--sombra);
+}
+
+.numero{
+    width:40px;
+    height:40px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    margin-bottom:18px;
+
+    background:var(--verde-claro);
+    color:var(--verde);
+
+    border-radius:11px;
+
+    font-size:12px;
+    font-weight:800;
+}
+
+.card h3{
+    margin-bottom:8px;
+
+    color:var(--verde-oscuro);
+
+    font-size:20px;
+}
+
+.card p{
+    color:var(--gris);
+    font-size:14px;
+}
+
+.antecedente{
+    padding:85px 0;
+
+    background:#304b40;
+    color:white;
+}
+
+.antecedente-grid{
+    display:grid;
+    grid-template-columns:.7fr 1.3fr;
+    gap:45px;
+
+    align-items:center;
+}
+
+.antecedente h2{
+    font-size:38px;
+    line-height:1.1;
+}
+
+.antecedente p{
+    color:#d3ded8;
+}
+
+.estudios{
+    padding:90px 0;
+}
+
+.estudios h2{
+    margin-bottom:12px;
+
+    color:var(--verde-oscuro);
+
+    font-size:40px;
+}
+
+.estudios > .contenedor > p{
+    max-width:690px;
+
+    margin-bottom:35px;
+
+    color:var(--gris);
+}
+
+.estudios-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+}
+
+.estudio{
+    padding:22px;
+
+    background:white;
+
+    border:1px solid var(--borde);
+    border-radius:17px;
+}
+
+.estudio strong{
+    display:block;
+
+    margin-bottom:5px;
+
+    color:var(--verde-oscuro);
+}
+
+.estudio span{
+    color:var(--gris);
+    font-size:13px;
+}
+
+.siguiente{
+    padding:0 0 90px;
+}
+
+.siguiente-box{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    gap:20px;
+
+    padding:25px;
+
+    background:white;
+
+    border:1px solid var(--borde);
+    border-radius:18px;
+}
+
+.siguiente-box span{
+    color:var(--gris);
+    font-size:13px;
+}
+
+.siguiente-box strong{
+    display:block;
+
+    color:var(--verde-oscuro);
+
+    font-size:20px;
+}
+
+.btn{
+    padding:12px 18px;
+
+    background:var(--verde);
+    color:white;
+
+    border-radius:10px;
+
+    font-size:13px;
+    font-weight:700;
+}
+
+footer{
+    display:flex;
+    justify-content:space-between;
+
+    padding:23px 6%;
+
+    background:#1d2e27;
+    color:#889991;
+
+    font-size:12px;
+}
+
+.reveal{
+    opacity:0;
+    transform:translateY(25px);
+
+    transition:.7s;
+}
+
+.reveal.visible{
+    opacity:1;
+    transform:none;
+}
+
+@media(max-width:850px){
+
+    .menu-toggle{
+        display:flex;
+    }
+
+    nav ul{
+        position:absolute;
+        top:calc(100% + 10px);
+        left:0;
+        right:0;
+
+        flex-direction:column;
+        align-items:stretch;
+        gap:4px;
+
+        padding:12px;
+
+        background:rgba(255,255,255,.97);
+        backdrop-filter:blur(14px);
+
+        border:1px solid #e0e6e2;
+        border-radius:16px;
+
+        box-shadow:0 8px 30px rgba(0,0,0,.1);
+
+        display:none;
+    }
+
+    nav ul.abierto{
+        display:flex;
+    }
+
+    nav a{
+        padding:12px 14px;
+        display:block;
+    }
+
+    .intro-grid,
+    .antecedente-grid{
+        grid-template-columns:1fr;
+    }
+
+    .grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+}
+
+@media(max-width:600px){
+
+    .grid,
+    .estudios-grid{
+        grid-template-columns:1fr;
+    }
+
+    .siguiente-box{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    footer{
+        flex-direction:column;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+
+<nav>
+
+<a href="index.html" class="logo">
+Guadalupe Ixcotla
+</a>
+
+<ul>
+<li><a href="index.html">Inicio</a></li>
+<li><a href="proyecto.html">Proyecto</a></li>
+<li><a href="imss.html">IMSS</a></li>
+<li><a href="asambleas.html">Asambleas</a></li>
+<li><a href="julio.html">5 de julio</a></li>
+<li><a class="activo" href="barranca.html">Barranca</a></li>
+<li><a href="presidencia.html">Presidencia</a></li>
+</ul>
+
+<button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+☰
+</button>
+
+</nav>
+
+
+<header class="hero">
+
+<div class="contenedor">
+
+<div class="hero-contenido">
+
+<span>
+Territorio y medio ambiente
+</span>
+
+<h1>
+Barranca<br>
+Briones
+</h1>
+
+<p>
+El comportamiento del agua,
+el suelo y las modificaciones del terreno
+son aspectos importantes
+al analizar nuevas construcciones en la zona.
+</p>
+
+<p class="aviso">
+Imagen de paisaje ilustrativa. No corresponde a Barranca Briones.
+</p>
+
+</div>
+
+</div>
+
+</header>
+
+
+<section class="intro">
+
+<div class="contenedor intro-grid">
+
+<div class="intro-destacado reveal">
+
+<h2>
+¿Por qué importa la barranca?
+</h2>
+
+<p>
+La zona tiene antecedentes relacionados
+con lluvias intensas, aumento del caudal
+y riesgo de desbordamiento.
+</p>
+
+</div>
+
+
+<div class="intro-texto reveal">
+
+<small>
+Territorio
+</small>
+
+<h2>
+Construir también modifica el terreno
+</h2>
+
+<p>
+Excavaciones, rellenos, edificios,
+pavimento y cambios en las pendientes
+pueden modificar la manera
+en que el agua circula y se infiltra.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="riesgos">
+
+<div class="contenedor">
+
+<h2 class="reveal">
+Aspectos que deben evaluarse
+</h2>
+
+
+<div class="grid">
+
+
+<div class="card reveal">
+
+<div class="numero">01</div>
+
+<h3>
+Alteración del suelo
+</h3>
+
+<p>
+Excavaciones y rellenos pueden modificar
+la estructura y estabilidad natural
+del terreno.
+</p>
+
+</div>
+
+
+<div class="card reveal">
+
+<div class="numero">02</div>
+
+<h3>
+Drenaje natural
+</h3>
+
+<p>
+Modificar pendientes puede cambiar
+la dirección y velocidad
+del agua de lluvia.
+</p>
+
+</div>
+
+
+<div class="card reveal">
+
+<div class="numero">03</div>
+
+<h3>
+Erosión
+</h3>
+
+<p>
+El flujo concentrado del agua
+puede desgastar orillas
+y arrastrar suelo.
+</p>
+
+</div>
+
+
+<div class="card reveal">
+
+<div class="numero">04</div>
+
+<h3>
+Inundaciones
+</h3>
+
+<p>
+Obstrucciones o cambios en el flujo
+podrían favorecer acumulaciones
+de agua durante lluvias intensas.
+</p>
+
+</div>
+
+
+<div class="card reveal">
+
+<div class="numero">05</div>
+
+<h3>
+Peso de las construcciones
+</h3>
+
+<p>
+Las nuevas estructuras generan
+cargas adicionales que deben evaluarse
+mediante estudios del terreno.
+</p>
+
+</div>
+
+
+<div class="card reveal">
+
+<div class="numero">06</div>
+
+<h3>
+Vegetación
+</h3>
+
+<p>
+La pérdida de vegetación
+puede reducir la absorción del agua
+y favorecer procesos de erosión.
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="antecedente">
+
+<div class="contenedor antecedente-grid">
+
+<h2 class="reveal">
+Existe un antecedente de riesgo hídrico
+</h2>
+
+<p class="reveal">
+Documentos de protección civil
+y planeación territorial han señalado
+riesgos relacionados con desbordamientos,
+inundaciones y comportamiento
+de cauces en la zona.
+Esto no significa que una obra
+provoque necesariamente un desastre,
+pero sí que el terreno debe estudiarse
+antes de realizar modificaciones importantes.
+</p>
+
+</div>
+
+</section>
+
+
+<section class="estudios">
+
+<div class="contenedor">
+
+<h2 class="reveal">
+¿Qué estudios deberían revisarse?
+</h2>
+
+<p class="reveal">
+Estos estudios permiten conocer
+con mayor precisión cómo podría responder
+el terreno ante una nueva construcción.
+</p>
+
+
+<div class="estudios-grid">
+
+
+<div class="estudio reveal">
+
+<strong>
+Estudio hidrológico
+</strong>
+
+<span>
+Analiza lluvias, escurrimientos
+y cantidad de agua.
+</span>
+
+</div>
+
+
+<div class="estudio reveal">
+
+<strong>
+Estudio hidráulico
+</strong>
+
+<span>
+Analiza cómo circula el agua
+por cauces y drenajes.
+</span>
+
+</div>
+
+
+<div class="estudio reveal">
+
+<strong>
+Mecánica de suelos
+</strong>
+
+<span>
+Permite conocer resistencia,
+capacidad de carga y estabilidad.
+</span>
+
+</div>
+
+
+<div class="estudio reveal">
+
+<strong>
+Evaluación ambiental
+</strong>
+
+<span>
+Analiza posibles efectos
+sobre suelo, vegetación y entorno.
+</span>
+
+</div>
+
+
+<div class="estudio reveal">
+
+<strong>
+Estudio geológico
+</strong>
+
+<span>
+Revisa las características
+y composición del terreno.
+</span>
+
+</div>
+
+
+<div class="estudio reveal">
+
+<strong>
+Drenaje pluvial
+</strong>
+
+<span>
+Permite diseñar el manejo
+del agua durante lluvias intensas.
+</span>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="siguiente">
+
+<div class="contenedor">
+
+<div class="siguiente-box">
+
+<div>
+
+<span>
+Regresar
+</span>
+
+<strong>
+Volver a la página principal
+</strong>
+
+</div>
+
+<a href="index.html" class="btn">
+Ir al inicio →
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<footer>
+
+<span>
+Guadalupe Ixcotla
+</span>
+
+<span>
+Territorio y comunidad · 2026
+</span>
+
+</footer>
+
+
+<script>
+
+const menuToggle =
+document.getElementById("menuToggle");
+
+const menuLista =
+document.querySelector("nav ul");
+
+menuToggle.addEventListener("click", () => {
+menuLista.classList.toggle("abierto");
+});
+
+menuLista.querySelectorAll("a").forEach(enlace => {
+enlace.addEventListener("click", () => {
+menuLista.classList.remove("abierto");
+});
+});
+
+
+const elementos =
+document.querySelectorAll(".reveal");
+
+const observer =
+new IntersectionObserver(
+(entries)=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+entry.target.classList.add("visible");
+}
+
+});
+
+},
+{
+threshold:.12
+}
+);
+
+elementos.forEach(elemento=>{
+observer.observe(elemento);
+});
+
+</script>
+
+</body>
+</html>

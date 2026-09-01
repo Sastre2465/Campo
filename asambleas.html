@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Asambleas | Guadalupe Ixcotla</title>
+
+<style>
+
+:root{
+    --fondo:#f7f6f3;
+    --blanco:#fff;
+    --texto:#252b2e;
+    --gris:#6c7376;
+    --azul:#315b70;
+    --oscuro:#243d48;
+    --naranja:#d67a46;
+    --crema:#eee8e0;
+    --morado:#75627f;
+    --borde:#e5e2dd;
+    --sombra:0 18px 45px rgba(40,45,48,.08);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:"Segoe UI",Arial,sans-serif;
+    background:var(--fondo);
+    color:var(--texto);
+    line-height:1.6;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+.contenedor{
+    width:min(1100px,88%);
+    margin:auto;
+}
+
+nav{
+    position:fixed;
+    top:18px;
+    left:50%;
+    transform:translateX(-50%);
+
+    width:min(1080px,92%);
+    height:64px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 20px;
+
+    background:rgba(255,255,255,.92);
+    backdrop-filter:blur(15px);
+
+    border:1px solid #e4e3df;
+    border-radius:16px;
+
+    box-shadow:0 8px 30px rgba(0,0,0,.07);
+
+    z-index:1000;
+}
+
+.logo{
+    color:var(--oscuro);
+    font-weight:800;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:3px;
+}
+
+nav a{
+    padding:9px 11px;
+
+    border-radius:9px;
+
+    font-size:13px;
+    font-weight:600;
+}
+
+nav li a:hover,
+nav li a.activo{
+    background:#edf1f2;
+}
+
+.menu-toggle{
+    display:none;
+    align-items:center;
+    justify-content:center;
+
+    width:38px;
+    height:38px;
+
+    background:#edf1f2;
+    color:var(--oscuro);
+
+    border:none;
+    border-radius:9px;
+
+    font-size:18px;
+    cursor:pointer;
+}
+
+.hero{
+    min-height:610px;
+
+    display:flex;
+    align-items:flex-end;
+
+    padding:145px 0 75px;
+
+    color:white;
+
+    background:
+    linear-gradient(
+        90deg,
+        rgba(25,35,40,.90),
+        rgba(25,35,40,.58),
+        rgba(25,35,40,.12)
+    ),
+    url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEic02oXKH-eKWMu1JobVivUTLK8fPZsnc1qkAlo9bVVes-fsgnHHnk4iTtQNhr6221gdXYPPyzs9mBr_9fbQ5Va92ZcoDxzc7xr3e5XKmQ7c03KU3CkPzIjBZ9R0HWsCR20UGHTru8GU0BG2hsOmHkm3UxkCUjhE1MoSmaiucUN0USjl1EA2HACc28Fqd6y/w640-h384/3e3e1cce-a897-4f53-a5f8-d48772c3540d.jpeg")
+    center/cover no-repeat;
+}
+
+.hero-contenido{
+    max-width:650px;
+}
+
+.hero span{
+    display:inline-block;
+
+    margin-bottom:15px;
+
+    padding:7px 12px;   
+
+    border-radius:30px;
+
+    background:rgba(255,255,255,.13);
+    border:1px solid rgba(255,255,255,.22);
+
+    font-size:12px;
+}
+
+.hero h1{
+    margin-bottom:17px;
+
+    font-size:clamp(50px,7vw,75px);
+    line-height:1;
+
+    letter-spacing:-3px;
+}
+
+.hero p{
+    color:#e7e5e2;
+
+    font-size:18px;
+}
+
+.hero .aviso{
+    margin-top:18px;
+
+    font-size:11px;
+    color:#d2ceca;
+}
+
+.intro{
+    padding:80px 0 45px;
+}
+
+.intro small{
+    color:var(--naranja);
+
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:1.3px;
+}
+
+.intro h2{
+    max-width:750px;
+
+    margin:10px 0 15px;
+
+    color:var(--oscuro);
+
+    font-size:42px;
+    line-height:1.1;
+}
+
+.intro p{
+    max-width:720px;
+
+    color:var(--gris);
+}
+
+.linea{
+    padding:35px 0 90px;
+}
+
+.evento{
+    display:grid;
+    grid-template-columns:160px 1fr;
+    gap:25px;
+
+    padding:28px 0;
+
+    border-bottom:1px solid var(--borde);
+}
+
+.fecha{
+    color:var(--naranja);
+
+    font-size:13px;
+    font-weight:800;
+}
+
+.evento-contenido{
+    padding:24px;
+
+    background:white;
+
+    border-radius:17px;
+
+    box-shadow:0 7px 22px rgba(0,0,0,.035);
+}
+
+.evento-contenido h3{
+    margin-bottom:7px;
+
+    color:var(--oscuro);
+
+    font-size:21px;
+}
+
+.evento-contenido p{
+    color:var(--gris);
+    font-size:14px;
+}
+
+.dos-versiones{
+    padding:80px 0;
+
+    background:#283c45;
+    color:white;
+}
+
+.dos-versiones h2{
+    margin-bottom:30px;
+
+    font-size:39px;
+}
+
+.versiones{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+}
+
+.version{
+    padding:27px;
+
+    background:rgba(255,255,255,.07);
+
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:19px;
+}
+
+.version h3{
+    margin-bottom:10px;
+
+    font-size:22px;
+}
+
+.version p{
+    color:#d2dce0;
+}
+
+.rumor{
+    padding:85px 0;
+}
+
+.rumor-box{
+    padding:30px;
+
+    background:#f0ebf2;
+
+    border:1px solid #e3dae7;
+    border-radius:21px;
+}
+
+.rumor-box span{
+    color:var(--morado);
+
+    font-size:12px;
+    font-weight:800;
+
+    text-transform:uppercase;
+    letter-spacing:1px;
+}
+
+.rumor-box h2{
+    margin:8px 0 12px;
+
+    color:#62516c;
+
+    font-size:30px;
+}
+
+.rumor-box p{
+    max-width:780px;
+
+    color:#6c626f;
+}
+
+.siguiente{
+    padding:0 0 90px;
+}
+
+.siguiente-box{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    gap:20px;
+
+    padding:25px;
+
+    background:white;
+
+    border:1px solid var(--borde);
+    border-radius:18px;
+}
+
+.siguiente-box span{
+    color:var(--gris);
+
+    font-size:13px;
+}
+
+.siguiente-box strong{
+    display:block;
+
+    color:var(--oscuro);
+
+    font-size:20px;
+}
+
+.btn{
+    padding:12px 18px;
+
+    background:var(--azul);
+    color:white;
+
+    border-radius:10px;
+
+    font-size:13px;
+    font-weight:700;
+}
+
+footer{
+    display:flex;
+    justify-content:space-between;
+
+    padding:23px 6%;
+
+    background:#182329;
+    color:#86959c;
+
+    font-size:12px;
+}
+
+.reveal{
+    opacity:0;
+    transform:translateY(25px);
+
+    transition:.7s;
+}
+
+.reveal.visible{
+    opacity:1;
+    transform:none;
+}
+
+@media(max-width:800px){
+
+    .menu-toggle{
+        display:flex;
+    }
+
+    nav ul{
+        position:absolute;
+        top:calc(100% + 10px);
+        left:0;
+        right:0;
+
+        flex-direction:column;
+        align-items:stretch;
+        gap:4px;
+
+        padding:12px;
+
+        background:rgba(255,255,255,.97);
+        backdrop-filter:blur(14px);
+
+        border:1px solid rgba(225,228,230,.9);
+        border-radius:16px;
+
+        box-shadow:0 8px 30px rgba(0,0,0,.1);
+
+        display:none;
+    }
+
+    nav ul.abierto{
+        display:flex;
+    }
+
+    nav a{
+        padding:12px 14px;
+        display:block;
+    }
+
+    .evento{
+        grid-template-columns:1fr;
+        gap:8px;
+    }
+
+    .versiones{
+        grid-template-columns:1fr;
+    }
+
+    .siguiente-box{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+
+<nav>
+
+<a href="index.html" class="logo">
+Guadalupe Ixcotla
+</a>
+
+<ul>
+<li><a href="index.html">Inicio</a></li>
+<li><a href="proyecto.html">Proyecto</a></li>
+<li><a href="imss.html">IMSS</a></li>
+<li><a class="activo" href="asambleas.html">Asambleas</a></li>
+<li><a href="julio.html">5 de julio</a></li>
+<li><a href="barranca.html">Barranca</a></li>
+<li><a href="presidencia.html">Presidencia</a></li>
+</ul>
+
+<button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+☰
+</button>
+
+</nav>
+
+
+<header class="hero">
+
+<div class="contenedor">
+
+<div class="hero-contenido">
+
+<span>
+Participación comunitaria
+</span>
+
+<h1>
+Las asambleas
+</h1>
+
+<p>
+Las consultas sobre el proyecto
+se convirtieron en uno de los principales
+puntos de discusión dentro de la comunidad.
+</p>
+
+<p class="aviso">
+Imagen ilustrativa de una reunión comunitaria.
+</p>
+
+</div>
+
+</div>
+
+</header>
+
+
+<section class="intro">
+
+<div class="contenedor reveal">
+
+<small>
+Participación
+</small>
+
+<h2>
+¿Qué ocurrió durante las consultas?
+</h2>
+
+<p>
+Las autoridades informaron que existió respaldo
+mayoritario al proyecto. Habitantes inconformes,
+sin embargo, cuestionaron la manera
+en que se realizaron las consultas.
+</p>
+
+</div>
+
+</section>
+
+
+<section class="linea">
+
+<div class="contenedor">
+
+
+<div class="evento reveal">
+
+<div class="fecha">
+12–14 JUN
+</div>
+
+<div class="evento-contenido">
+
+<h3>
+Consultas comunitarias
+</h3>
+
+<p>
+Se realizaron reuniones para presentar
+el proyecto y conocer la postura
+de las comunidades involucradas.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="evento reveal">
+
+<div class="fecha">
+VOTACIÓN
+</div>
+
+<div class="evento-contenido">
+
+<h3>
+Respaldo reportado
+</h3>
+
+<p>
+Las autoridades informaron
+que la mayoría de los asistentes
+respaldó el proyecto mediante
+una votación a mano alzada.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="evento reveal">
+
+<div class="fecha">
+RECLAMOS
+</div>
+
+<div class="evento-contenido">
+
+<h3>
+Participación de personas externas
+</h3>
+
+<p>
+Habitantes inconformes denunciaron
+que participaron personas de otras comunidades,
+trabajadores municipales
+y elementos de seguridad.
+</p>
+
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<section class="dos-versiones">
+
+<div class="contenedor">
+
+<h2 class="reveal">
+Dos posturas sobre las consultas
+</h2>
+
+
+<div class="versiones">
+
+<div class="version reveal">
+
+<h3>
+Autoridades
+</h3>
+
+<p>
+Sostienen que las consultas fueron válidas
+y que la mayoría de quienes participaron
+respaldó el proyecto.
+</p>
+
+</div>
+
+
+<div class="version reveal">
+
+<h3>
+Habitantes inconformes
+</h3>
+
+<p>
+Cuestionan la legitimidad del proceso
+y señalan que hubo participación
+de personas que no pertenecían
+a las comunidades consultadas.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="rumor">
+
+<div class="contenedor">
+
+<div class="rumor-box reveal">
+
+<span>
+Tema dentro de la comunidad
+</span>
+
+<h2>
+Rumores sobre posibles pagos
+</h2>
+
+<p>
+Dentro de la comunidad han circulado rumores
+sobre posibles entregas de dinero o beneficios
+a presidentes y personas involucradas
+en el proceso de autorización de la obra.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="siguiente">
+
+<div class="contenedor">
+
+<div class="siguiente-box">
+
+<div>
+
+<span>
+Siguiente tema
+</span>
+
+<strong>
+¿Qué ocurrió el 5 de julio?
+</strong>
+
+</div>
+
+<a href="julio.html" class="btn">
+Ver 5 de julio →
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<footer>
+
+<span>
+Guadalupe Ixcotla
+</span>
+
+<span>
+Información comunitaria · 2026
+</span>
+
+</footer>
+
+
+<script>
+
+const menuToggle =
+document.getElementById("menuToggle");
+
+const menuLista =
+document.querySelector("nav ul");
+
+menuToggle.addEventListener("click", () => {
+menuLista.classList.toggle("abierto");
+});
+
+menuLista.querySelectorAll("a").forEach(enlace => {
+enlace.addEventListener("click", () => {
+menuLista.classList.remove("abierto");
+});
+});
+
+
+const elementos =
+document.querySelectorAll(".reveal");
+
+const observer =
+new IntersectionObserver(
+(entries)=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+entry.target.classList.add("visible");
+}
+
+});
+
+},
+{
+threshold:.12
+}
+);
+
+elementos.forEach(elemento=>{
+observer.observe(elemento);
+});
+
+</script>
+
+</body>
+</html>

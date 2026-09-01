@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>5 de julio | Guadalupe Ixcotla</title>
+
+<style>
+
+:root{
+    --fondo:#f8f4f1;
+    --blanco:#fff;
+    --texto:#2b2928;
+    --gris:#716b68;
+    --rojo:#965247;
+    --rojo-claro:#f2e3df;
+    --naranja:#d47745;
+    --azul:#315b70;
+    --oscuro:#283d46;
+    --borde:#e7ded9;
+    --sombra:0 18px 45px rgba(50,35,30,.08);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:"Segoe UI",Arial,sans-serif;
+    background:var(--fondo);
+    color:var(--texto);
+    line-height:1.6;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+.contenedor{
+    width:min(1080px,88%);
+    margin:auto;
+}
+
+nav{
+    position:fixed;
+    top:18px;
+    left:50%;
+    transform:translateX(-50%);
+
+    width:min(1080px,92%);
+    height:64px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 20px;
+
+    background:rgba(255,255,255,.92);
+    backdrop-filter:blur(15px);
+
+    border:1px solid #e7e1de;
+    border-radius:16px;
+
+    box-shadow:0 8px 30px rgba(0,0,0,.07);
+
+    z-index:1000;
+}
+
+.logo{
+    color:var(--oscuro);
+    font-weight:800;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:3px;
+}
+
+nav a{
+    padding:9px 11px;
+
+    border-radius:9px;
+
+    font-size:13px;
+    font-weight:600;
+}
+
+nav li a:hover,
+nav li a.activo{
+    background:#f3e6e2;
+}
+
+.menu-toggle{
+    display:none;
+    align-items:center;
+    justify-content:center;
+
+    width:38px;
+    height:38px;
+
+    background:#f3e6e2;
+    color:var(--oscuro);
+
+    border:none;
+    border-radius:9px;
+
+    font-size:18px;
+    cursor:pointer;
+}
+
+.hero{
+    min-height:610px;
+    display:flex;
+    align-items:flex-end;
+    padding:150px 0 75px;
+    color:white;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(50,28,25,.88) 0%,
+            rgba(50,28,25,.52) 48%,
+            rgba(50,28,25,.08) 100%
+        ),
+        url("AQUI_PONES_LA_IMAGEN_DEL_5_DE_JULIO")
+        center 42% / cover no-repeat;
+}
+.hero span{
+    display:inline-block;
+
+    margin-bottom:15px;
+
+    padding:7px 12px;
+
+    border-radius:30px;
+
+    background:rgba(255,255,255,.12);
+    border:1px solid rgba(255,255,255,.2);
+
+    font-size:12px;
+}
+
+.hero h1{
+    margin-bottom:15px;
+
+    font-size:clamp(55px,9vw,92px);
+    line-height:.9;
+
+    letter-spacing:-4px;
+}
+
+.hero h1 small{
+    display:block;
+
+    margin-bottom:10px;
+
+    font-size:21px;
+    letter-spacing:0;
+}
+
+.hero p{
+    max-width:620px;
+
+    color:#eee2dd;
+
+    font-size:18px;
+}
+
+.hero .aviso{
+    margin-top:18px;
+
+    color:#dbcac4;
+
+    font-size:11px;
+}
+
+.relato{
+    padding:85px 0;
+}
+
+.relato-grid{
+    display:grid;
+    grid-template-columns:.75fr 1.25fr;
+    gap:55px;
+}
+
+.relato-titulo{
+    position:sticky;
+    top:115px;
+
+    height:max-content;
+}
+
+.relato-titulo span{
+    color:var(--rojo);
+
+    font-size:12px;
+    font-weight:800;
+
+    letter-spacing:1.3px;
+    text-transform:uppercase;
+}
+
+.relato-titulo h2{
+    margin-top:8px;
+
+    color:#663d36;
+
+    font-size:40px;
+    line-height:1.1;
+}
+
+.bloque{
+    margin-bottom:16px;
+
+    padding:26px;
+
+    background:white;
+
+    border:1px solid var(--borde);
+    border-radius:18px;
+}
+
+.bloque small{
+    display:block;
+
+    margin-bottom:7px;
+
+    color:var(--rojo);
+
+    font-weight:800;
+}
+
+.bloque h3{
+    margin-bottom:8px;
+
+    color:#643f38;
+
+    font-size:21px;
+}
+
+.bloque p{
+    color:var(--gris);
+}
+
+.alerta{
+    padding:85px 0;
+
+    background:#6f4039;
+    color:white;
+}
+
+.alerta-grid{
+    display:grid;
+    grid-template-columns:.8fr 1.2fr;
+    gap:40px;
+
+    align-items:center;
+}
+
+.alerta h2{
+    font-size:38px;
+    line-height:1.1;
+}
+
+.alerta p{
+    color:#ead9d5;
+}
+
+.versiones{
+    padding:85px 0;
+}
+
+.versiones h2{
+    margin-bottom:30px;
+
+    color:#663f37;
+
+    font-size:38px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+}
+
+.version{
+    padding:28px;
+
+    background:white;
+
+    border:1px solid var(--borde);
+    border-radius:20px;
+}
+
+.version h3{
+    margin-bottom:10px;
+
+    color:#6d443d;
+}
+
+.version p{
+    color:var(--gris);
+}
+
+.siguiente{
+    padding:0 0 90px;
+}
+
+.siguiente-box{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    gap:20px;
+
+    padding:25px;
+
+    background:white;
+
+    border:1px solid var(--borde);
+    border-radius:18px;
+}
+
+.siguiente-box span{
+    color:var(--gris);
+    font-size:13px;
+}
+
+.siguiente-box strong{
+    display:block;
+
+    color:var(--oscuro);
+
+    font-size:20px;
+}
+
+.btn{
+    padding:12px 18px;
+
+    background:var(--rojo);
+    color:white;
+
+    border-radius:10px;
+
+    font-size:13px;
+    font-weight:700;
+}
+
+footer{
+    display:flex;
+    justify-content:space-between;
+
+    padding:23px 6%;
+
+    background:#241c1a;
+    color:#a89792;
+
+    font-size:12px;
+}
+
+.reveal{
+    opacity:0;
+    transform:translateY(25px);
+
+    transition:.7s;
+}
+
+.reveal.visible{
+    opacity:1;
+    transform:none;
+}
+
+@media(max-width:800px){
+
+    .menu-toggle{
+        display:flex;
+    }
+
+    nav ul{
+        position:absolute;
+        top:calc(100% + 10px);
+        left:0;
+        right:0;
+
+        flex-direction:column;
+        align-items:stretch;
+        gap:4px;
+
+        padding:12px;
+
+        background:rgba(255,255,255,.97);
+        backdrop-filter:blur(14px);
+
+        border:1px solid #e7e1de;
+        border-radius:16px;
+
+        box-shadow:0 8px 30px rgba(0,0,0,.1);
+
+        display:none;
+    }
+
+    nav ul.abierto{
+        display:flex;
+    }
+
+    nav a{
+        padding:12px 14px;
+        display:block;
+    }
+
+    .relato-grid,
+    .alerta-grid,
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    .relato-titulo{
+        position:static;
+    }
+
+    .siguiente-box{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+
+<nav>
+
+<a href="index.html" class="logo">
+Guadalupe Ixcotla
+</a>
+
+<ul>
+<li><a href="index.html">Inicio</a></li>
+<li><a href="proyecto.html">Proyecto</a></li>
+<li><a href="imss.html">IMSS</a></li>
+<li><a href="asambleas.html">Asambleas</a></li>
+<li><a class="activo" href="julio.html">5 de julio</a></li>
+<li><a href="barranca.html">Barranca</a></li>
+<li><a href="presidencia.html">Presidencia</a></li>
+</ul>
+
+<button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+☰
+</button>
+
+</nav>
+
+
+<header class="hero">
+
+<div class="contenedor">
+
+<span>
+Conflicto comunitario
+</span>
+
+<h1>
+<small>5 de</small>
+julio
+</h1>
+
+<p>
+El inicio de los trabajos provocó
+uno de los momentos de mayor tensión
+entre habitantes inconformes
+y elementos de seguridad.
+</p>
+
+<p class="aviso">
+
+</p>
+
+</div>
+
+</header>
+
+
+<section class="relato">
+
+<div class="contenedor relato-grid">
+
+
+<div class="relato-titulo">
+
+<span>
+Julio de 2026
+</span>
+
+<h2>
+¿Qué ocurrió ese día?
+</h2>
+
+</div>
+
+
+<div>
+
+
+<div class="bloque reveal">
+
+<small>
+01
+</small>
+
+<h3>
+Ingreso de maquinaria
+</h3>
+
+<p>
+Habitantes inconformes acudieron
+a la zona para intentar detener
+el ingreso de maquinaria
+y el inicio de los trabajos.
+</p>
+
+</div>
+
+
+<div class="bloque reveal">
+
+<small>
+02
+</small>
+
+<h3>
+Despliegue de seguridad
+</h3>
+
+<p>
+En el lugar se desplegaron
+elementos de seguridad
+y policías antimotines.
+</p>
+
+</div>
+
+
+<div class="bloque reveal">
+
+<small>
+03
+</small>
+
+<h3>
+Confrontación
+</h3>
+
+<p>
+Durante los hechos hubo
+empujones, forcejeos
+y momentos de tensión
+entre habitantes y elementos de seguridad.
+</p>
+
+</div>
+
+
+<div class="bloque reveal">
+
+<small>
+04
+</small>
+
+<h3>
+Denuncias sobre uso de fuerza
+</h3>
+
+<p>
+Habitantes denunciaron
+uso de gas y fuerza excesiva
+durante la intervención.
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="alerta">
+
+<div class="contenedor alerta-grid">
+
+<h2 class="reveal">
+¿Quiénes estaban en el lugar?
+</h2>
+
+<p class="reveal">
+Habitantes sostienen que durante
+la intervención había mujeres,
+personas adultas mayores,
+familias y menores de edad,
+por lo que cuestionaron
+el uso de gas y fuerza policial.
+</p>
+
+</div>
+
+</section>
+
+
+<section class="versiones">
+
+<div class="contenedor">
+
+<h2 class="reveal">
+Dos versiones de los hechos
+</h2>
+
+
+<div class="grid">
+
+
+<div class="version reveal">
+
+<h3>
+Habitantes inconformes
+</h3>
+
+<p>
+Consideran que el operativo
+fue excesivo y que buscaban
+defender espacios comunitarios
+y detener el inicio de los trabajos.
+</p>
+
+</div>
+
+
+<div class="version reveal">
+
+<h3>
+Autoridades
+</h3>
+
+<p>
+Señalaron que el operativo
+buscaba proteger al personal,
+mantener el acceso
+y permitir el desarrollo de los trabajos.
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="siguiente">
+
+<div class="contenedor">
+
+<div class="siguiente-box">
+
+<div>
+
+<span>
+Siguiente tema
+</span>
+
+<strong>
+¿Qué ocurre con Barranca Briones?
+</strong>
+
+</div>
+
+<a href="barranca.html" class="btn">
+Ver Barranca →
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<footer>
+
+<span>
+Guadalupe Ixcotla
+</span>
+
+<span>
+Información comunitaria · 2026
+</span>
+
+</footer>
+
+
+<script>
+
+const menuToggle =
+document.getElementById("menuToggle");
+
+const menuLista =
+document.querySelector("nav ul");
+
+menuToggle.addEventListener("click", () => {
+menuLista.classList.toggle("abierto");
+});
+
+menuLista.querySelectorAll("a").forEach(enlace => {
+enlace.addEventListener("click", () => {
+menuLista.classList.remove("abierto");
+});
+});
+
+
+const elementos =
+document.querySelectorAll(".reveal");
+
+const observer =
+new IntersectionObserver(
+(entries)=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+entry.target.classList.add("visible");
+}
+
+});
+
+},
+{
+threshold:.12
+}
+);
+
+elementos.forEach(elemento=>{
+observer.observe(elemento);
+});
+
+</script>
+
+</body>
+</html>

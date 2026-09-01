@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Proyecto IMSS | Guadalupe Ixcotla</title>
+
+<style>
+
+:root{
+    --fondo:#f5f6f7;
+    --blanco:#ffffff;
+    --texto:#1e2930;
+    --gris:#69747b;
+    --azul:#315b70;
+    --azul-oscuro:#213f4e;
+    --azul-claro:#e8f0f4;
+    --naranja:#d77a46;
+    --borde:#e3e7e9;
+    --sombra:0 18px 45px rgba(30,50,60,.09);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:"Segoe UI",Arial,sans-serif;
+    background:var(--fondo);
+    color:var(--texto);
+    line-height:1.6;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+.contenedor{
+    width:min(1100px,88%);
+    margin:auto;
+}
+
+/* MENÚ */
+
+nav{
+    position:fixed;
+    top:18px;
+    left:50%;
+    transform:translateX(-50%);
+    width:min(1080px,92%);
+    height:64px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 20px;
+
+    background:rgba(255,255,255,.92);
+    backdrop-filter:blur(15px);
+
+    border:1px solid rgba(225,228,230,.9);
+    border-radius:16px;
+
+    box-shadow:0 8px 30px rgba(0,0,0,.07);
+
+    z-index:1000;
+}
+
+.logo{
+    font-weight:800;
+    color:var(--azul-oscuro);
+}
+
+nav ul{
+    display:flex;
+    gap:3px;
+    list-style:none;
+}
+
+nav ul a{
+    display:block;
+    padding:9px 11px;
+    border-radius:9px;
+
+    color:#4f5c63;
+
+    font-size:13px;
+    font-weight:600;
+
+    transition:.25s;
+}
+
+nav ul a:hover,
+nav ul a.activo{
+    background:var(--azul-claro);
+    color:var(--azul-oscuro);
+}
+
+.menu-toggle{
+    display:none;
+    align-items:center;
+    justify-content:center;
+
+    width:38px;
+    height:38px;
+
+    background:var(--azul-claro);
+    color:var(--azul-oscuro);
+
+    border:none;
+    border-radius:9px;
+
+    font-size:18px;
+    cursor:pointer;
+}
+
+/* HERO */
+
+.hero{
+    min-height:620px;
+
+    position:relative;
+
+    display:flex;
+    align-items:flex-end;
+
+    padding:150px 0 80px;
+
+    color:white;
+
+    background:
+    linear-gradient(
+        90deg,
+        rgba(19,43,54,.93) 0%,
+        rgba(19,43,54,.76) 45%,
+        rgba(19,43,54,.18) 100%
+    ),
+    url("https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1800&q=85")
+    center/cover no-repeat;
+}
+
+.hero-contenido{
+    max-width:670px;
+}
+
+.etiqueta{
+    display:inline-block;
+
+    margin-bottom:16px;
+
+    padding:7px 12px;
+
+    background:rgba(255,255,255,.13);
+
+    border:1px solid rgba(255,255,255,.22);
+    border-radius:30px;
+
+    font-size:12px;
+    font-weight:700;
+}
+
+.hero h1{
+    margin-bottom:18px;
+
+    font-size:clamp(46px,7vw,72px);
+    line-height:1;
+
+    letter-spacing:-3px;
+}
+
+.hero p{
+    max-width:600px;
+
+    color:#dde7eb;
+
+    font-size:18px;
+}
+
+.foto-aviso{
+    margin-top:20px;
+
+    color:#c4d1d6;
+
+    font-size:11px;
+}
+
+/* INTRO */
+
+.intro{
+    padding:85px 0 40px;
+}
+
+.intro-grid{
+    display:grid;
+    grid-template-columns:.8fr 1.2fr;
+    gap:55px;
+
+    align-items:center;
+}
+
+.intro-dato{
+    padding:30px;
+
+    background:var(--azul-oscuro);
+    color:white;
+
+    border-radius:22px;
+
+    box-shadow:var(--sombra);
+}
+
+.intro-dato strong{
+    display:block;
+
+    margin-bottom:4px;
+
+    font-size:44px;
+}
+
+.intro-dato span{
+    color:#cad8de;
+}
+
+.intro-texto small{
+    color:var(--naranja);
+
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:1.3px;
+}
+
+.intro-texto h2{
+    margin:10px 0 15px;
+
+    color:var(--azul-oscuro);
+
+    font-size:40px;
+    line-height:1.1;
+}
+
+.intro-texto p{
+    color:var(--gris);
+}
+
+/* COMPONENTES */
+
+.componentes{
+    padding:50px 0 90px;
+}
+
+.titulo{
+    margin-bottom:35px;
+
+    color:var(--azul-oscuro);
+
+    font-size:38px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+}
+
+.card{
+    padding:27px;
+
+    background:white;
+
+    border:1px solid var(--borde);
+    border-radius:20px;
+
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    box-shadow:var(--sombra);
+}
+
+.icono{
+    width:42px;
+    height:42px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    margin-bottom:20px;
+
+    background:var(--azul-claro);
+    color:var(--azul);
+
+    border-radius:12px;
+
+    font-weight:800;
+}
+
+.card h3{
+    margin-bottom:8px;
+
+    color:var(--azul-oscuro);
+
+    font-size:23px;
+}
+
+.card p{
+    color:var(--gris);
+    font-size:14px;
+}
+
+.estado{
+    display:inline-block;
+
+    margin-top:15px;
+
+    padding:6px 10px;
+
+    background:#eef1f2;
+    color:#59666d;
+
+    border-radius:20px;
+
+    font-size:11px;
+    font-weight:700;
+}
+
+.pendiente{
+    background:#f8ebe4;
+    color:#a15b37;
+}
+
+/* AVANCES */
+
+.avances{
+    padding:85px 0;
+
+    background:white;
+}
+
+.avances h2{
+    margin-bottom:12px;
+
+    color:var(--azul-oscuro);
+
+    font-size:40px;
+}
+
+.avances-intro{
+    max-width:670px;
+
+    margin-bottom:35px;
+
+    color:var(--gris);
+}
+
+.avance{
+    display:grid;
+    grid-template-columns:120px 1fr;
+    gap:25px;
+
+    padding:22px 0;
+
+    border-bottom:1px solid var(--borde);
+}
+
+.fecha{
+    color:var(--naranja);
+
+    font-size:13px;
+    font-weight:800;
+}
+
+.avance h3{
+    margin-bottom:5px;
+
+    color:var(--azul-oscuro);
+}
+
+.avance p{
+    color:var(--gris);
+    font-size:14px;
+}
+
+/* INVERSIÓN */
+
+.inversion{
+    padding:90px 0;
+}
+
+.inversion-box{
+    padding:45px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:linear-gradient(135deg,#213f4e,#315b70);
+    color:white;
+
+    border-radius:25px;
+}
+
+.inversion-box::after{
+    content:"";
+
+    position:absolute;
+
+    width:280px;
+    height:280px;
+
+    right:-70px;
+    bottom:-150px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.07);
+}
+
+.inversion-box small{
+    color:#c6d5db;
+
+    text-transform:uppercase;
+    letter-spacing:1px;
+
+    font-weight:700;
+}
+
+.inversion-box h2{
+    margin:10px 0 16px;
+
+    font-size:clamp(45px,7vw,70px);
+    line-height:1;
+}
+
+.inversion-box p{
+    max-width:640px;
+    color:#d5e0e4;
+}
+
+/* BOTONES DE NAVEGACIÓN */
+
+.siguiente{
+    padding:30px 0 90px;
+}
+
+.siguiente-box{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    gap:20px;
+
+    padding:25px;
+
+    background:white;
+
+    border:1px solid var(--borde);
+    border-radius:18px;
+}
+
+.siguiente-box span{
+    color:var(--gris);
+    font-size:13px;
+}
+
+.siguiente-box strong{
+    display:block;
+
+    color:var(--azul-oscuro);
+
+    font-size:20px;
+}
+
+.btn{
+    padding:12px 18px;
+
+    background:var(--azul);
+    color:white;
+
+    border-radius:10px;
+
+    font-size:13px;
+    font-weight:700;
+}
+
+/* FOOTER */
+
+footer{
+    display:flex;
+    justify-content:space-between;
+
+    gap:20px;
+
+    padding:23px 6%;
+
+    background:#17242b;
+    color:#89979e;
+
+    font-size:12px;
+}
+
+/* ANIMACIÓN */
+
+.reveal{
+    opacity:0;
+    transform:translateY(25px);
+
+    transition:.7s ease;
+}
+
+.reveal.visible{
+    opacity:1;
+    transform:translateY(0);
+}
+
+@media(max-width:850px){
+
+    .menu-toggle{
+        display:flex;
+    }
+
+    nav ul{
+        position:absolute;
+        top:calc(100% + 10px);
+        left:0;
+        right:0;
+
+        flex-direction:column;
+        align-items:stretch;
+        gap:4px;
+
+        padding:12px;
+
+        background:rgba(255,255,255,.97);
+        backdrop-filter:blur(14px);
+
+        border:1px solid var(--borde);
+        border-radius:16px;
+
+        box-shadow:0 8px 30px rgba(0,0,0,.1);
+
+        display:none;
+    }
+
+    nav ul.abierto{
+        display:flex;
+    }
+
+    nav ul a{
+        padding:12px 14px;
+    }
+
+    .intro-grid,
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    .avance{
+        grid-template-columns:1fr;
+        gap:5px;
+    }
+}
+
+@media(max-width:600px){
+
+    .hero{
+        min-height:550px;
+    }
+
+    .inversion-box{
+        padding:30px;
+    }
+
+    .siguiente-box{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    footer{
+        flex-direction:column;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+
+<a href="index.html" class="logo">
+Guadalupe Ixcotla
+</a>
+
+<ul>
+<li><a href="index.html">Inicio</a></li>
+<li><a class="activo" href="proyecto.html">Proyecto</a></li>
+<li><a href="imss.html">IMSS</a></li>
+<li><a href="asambleas.html">Asambleas</a></li>
+<li><a href="julio.html">5 de julio</a></li>
+<li><a href="barranca.html">Barranca</a></li>
+<li><a href="presidencia.html">Presidencia</a></li>
+</ul>
+
+<button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+☰
+</button>
+
+</nav>
+
+
+<header class="hero">
+
+<div class="contenedor">
+
+<div class="hero-contenido">
+
+<span class="etiqueta">
+Proyecto de infraestructura médica
+</span>
+
+<h1>
+Proyecto IMSS
+</h1>
+
+<p>
+Conoce los principales componentes del proyecto,
+la inversión anunciada y el estado de las obras
+planteadas para Guadalupe Ixcotla.
+</p>
+
+<div class="foto-aviso">
+
+</div>
+
+</div>
+
+</div>
+
+</header>
+
+
+<section class="intro">
+
+<div class="contenedor intro-grid">
+
+<div class="intro-dato reveal">
+
+<strong>
++$1,000 M
+</strong>
+
+<span>
+Inversión anunciada para el proyecto integral.
+</span>
+
+</div>
+
+
+<div class="intro-texto reveal">
+
+<small>
+Panorama general
+</small>
+
+<h2>
+¿Qué contempla el proyecto?
+</h2>
+
+<p>
+La propuesta integra infraestructura médica,
+cuidado infantil y espacios complementarios.
+El objetivo oficial es ampliar la atención
+de salud en la región.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="componentes">
+
+<div class="contenedor">
+
+<h2 class="titulo reveal">
+Componentes principales
+</h2>
+
+
+<div class="grid">
+
+
+<div class="card reveal">
+
+<div class="icono">01</div>
+
+<h3>UMF Plus</h3>
+
+<p>
+Unidad de Medicina Familiar para fortalecer
+la consulta, prevención, diagnóstico
+y seguimiento de pacientes.
+</p>
+
+<span class="estado">
+Proyecto anunciado
+</span>
+
+</div>
+
+
+<div class="card reveal">
+
+<div class="icono">02</div>
+
+<h3>CECI</h3>
+
+<p>
+Centro de Educación y Cuidado Infantil
+con capacidad anunciada para alrededor
+de 110 niñas y niños.
+</p>
+
+<span class="estado">
+Primera etapa
+</span>
+
+</div>
+
+
+<div class="card reveal">
+
+<div class="icono">03</div>
+
+<h3>Hemodiálisis</h3>
+
+<p>
+Se ha planteado una Unidad de Hemodiálisis
+para ampliar la atención especializada
+en la región.
+</p>
+
+<span class="estado pendiente">
+Pendiente de aprobación
+</span>
+
+</div>
+
+
+<div class="card reveal">
+
+<div class="icono">04</div>
+
+<h3>Espacios deportivos</h3>
+
+<p>
+El proyecto integral también contempla
+infraestructura deportiva y espacios
+complementarios para la comunidad.
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="avances">
+
+<div class="contenedor">
+
+<h2 class="reveal">
+Situación del proyecto
+</h2>
+
+<p class="avances-intro reveal">
+El proyecto ha continuado avanzando en distintas etapas,
+aunque algunos componentes todavía requieren autorizaciones.
+</p>
+
+
+<div class="avance reveal">
+
+<div class="fecha">
+JULIO 2026
+</div>
+
+<div>
+<h3>Avance del proyecto integral</h3>
+<p>
+Autoridades informaron que el proyecto cuenta
+con respaldo comunitario y una inversión superior
+a mil millones de pesos.
+</p>
+</div>
+
+</div>
+
+
+<div class="avance reveal">
+
+<div class="fecha">
+JULIO 2026
+</div>
+
+<div>
+<h3>Unidad de Hemodiálisis</h3>
+<p>
+La unidad continuaba pendiente de aprobación
+y autorización presupuestal.
+</p>
+</div>
+
+</div>
+
+
+<div class="avance reveal">
+
+<div class="fecha">
+AGOSTO 2026
+</div>
+
+<div>
+<h3>Proceso administrativo</h3>
+<p>
+El proyecto continúa avanzando hacia nuevas etapas
+administrativas y de contratación de obra.
+</p>
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<section class="inversion">
+
+<div class="contenedor">
+
+<div class="inversion-box reveal">
+
+<small>
+Inversión anunciada
+</small>
+
+<h2>
+Más de<br>
+$1,000 millones
+</h2>
+
+<p>
+La inversión corresponde al proyecto integral
+y contempla infraestructura médica,
+el CECI, espacios deportivos
+y obras complementarias.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="siguiente">
+
+<div class="contenedor">
+
+<div class="siguiente-box">
+
+<div>
+
+<span>
+Siguiente tema
+</span>
+
+<strong>
+¿Cómo funcionan IMSS e IMSS-Bienestar?
+</strong>
+
+</div>
+
+<a href="imss.html" class="btn">
+Ver IMSS →
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<footer>
+
+<span>Guadalupe Ixcotla</span>
+<span>Proyecto IMSS · 2026</span>
+
+</footer>
+
+
+<script>
+
+const menuToggle =
+document.getElementById("menuToggle");
+
+const menuLista =
+document.querySelector("nav ul");
+
+menuToggle.addEventListener("click", () => {
+menuLista.classList.toggle("abierto");
+});
+
+menuLista.querySelectorAll("a").forEach(enlace => {
+enlace.addEventListener("click", () => {
+menuLista.classList.remove("abierto");
+});
+});
+
+
+const elementos =
+document.querySelectorAll(".reveal");
+
+const observer =
+new IntersectionObserver(
+(entries)=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+entry.target.classList.add("visible");
+}
+
+});
+
+},
+{
+threshold:.12
+}
+);
+
+elementos.forEach(elemento=>{
+observer.observe(elemento);
+});
+
+</script>
+
+</body>
+</html>
