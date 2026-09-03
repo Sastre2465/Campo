@@ -50,22 +50,22 @@ nav{
     left:50%;
     transform:translateX(-50%);
 
-    width:min(1080px,92%);
-    height:64px;
+    width:min(1120px,94%);
+    min-height:64px;
 
     display:flex;
     align-items:center;
     justify-content:space-between;
 
-    padding:0 20px;
+    padding:0 18px;
 
-    background:rgba(255,255,255,.92);
+    background:rgba(255,255,255,.93);
     backdrop-filter:blur(15px);
 
-    border:1px solid #e4e7e9;
+    border:1px solid var(--borde);
     border-radius:16px;
 
-    box-shadow:0 8px 30px rgba(0,0,0,.07);
+    box-shadow:0 8px 30px rgba(0,0,0,.06);
 
     z-index:1000;
 }
@@ -73,20 +73,24 @@ nav{
 .logo{
     color:var(--oscuro);
     font-weight:800;
+    white-space:nowrap;
 }
 
 nav ul{
     display:flex;
+    align-items:center;
     list-style:none;
-    gap:3px;
+    gap:2px;
 }
 
 nav a{
-    padding:9px 11px;
+    padding:9px 10px;
     border-radius:9px;
 
-    font-size:13px;
+    font-size:12px;
     font-weight:600;
+
+    transition:.25s;
 }
 
 nav li a:hover,
@@ -129,7 +133,7 @@ nav li a.activo{
         rgba(20,45,57,.68),
         rgba(20,45,57,.20)
     ),
-    url("https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1800&q=85")
+    url("https://estilotlax.com/wp-content/uploads/2026/06/IMG-20260610-WA0121.jpg")
     center/cover no-repeat;
 }
 
@@ -303,25 +307,59 @@ nav li a.activo{
 }
 
 .nota-box{
-    display:grid;
-    grid-template-columns:.7fr 1.3fr;
-    gap:30px;
+    position:relative;
 
-    padding:30px;
+    overflow:hidden;
 
-    background:#f1e9e4;
+    padding:45px;
 
-    border-radius:20px;
+    background:linear-gradient(135deg,var(--oscuro),var(--azul));
+    color:white;
+
+    border-radius:25px;
+}
+
+.nota-box::after{
+    content:"";
+
+    position:absolute;
+    right:-70px;
+    bottom:-150px;
+
+    width:280px;
+    height:280px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.07);
+}
+
+.nota-box small{
+    display:block;
+
+    color:#c6d5db;
+
+    font-size:12px;
+    font-weight:700;
+
+    text-transform:uppercase;
+    letter-spacing:1px;
 }
 
 .nota-box h2{
-    color:#845034;
+    margin:10px 0 16px;
 
-    font-size:27px;
+    font-size:clamp(28px,4vw,34px);
+    line-height:1.15;
 }
 
 .nota-box p{
-    color:#6e625c;
+    max-width:680px;
+
+    color:#d5e0e4;
+
+    font-size:15px;
+    line-height:1.65;
 }
 
 .siguiente{
@@ -393,7 +431,7 @@ footer{
     transform:none;
 }
 
-@media(max-width:800px){
+@media(max-width:950px){
 
     .menu-toggle{
         display:flex;
@@ -414,7 +452,7 @@ footer{
         background:rgba(255,255,255,.97);
         backdrop-filter:blur(14px);
 
-        border:1px solid #e4e7e9;
+        border:1px solid var(--borde);
         border-radius:16px;
 
         box-shadow:0 8px 30px rgba(0,0,0,.1);
@@ -431,8 +469,7 @@ footer{
         display:block;
     }
 
-    .grid,
-    .nota-box{
+    .grid{
         grid-template-columns:1fr;
     }
 
@@ -463,6 +500,7 @@ Guadalupe Ixcotla
 <li><a href="julio.html">5 de julio</a></li>
 <li><a href="barranca.html">Barranca</a></li>
 <li><a href="presidencia.html">Presidencia</a></li>
+<li><a href="novedades.html">Novedades</a></li>
 </ul>
 
 <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
@@ -509,10 +547,19 @@ ni atienden principalmente a la misma población.
 </h2>
 
 <p>
-El IMSS ordinario está relacionado principalmente
-con personas derechohabientes, mientras que
-IMSS-Bienestar se orienta a población
-que no cuenta con seguridad social.
+Aunque comparten el nombre "IMSS", son dos modelos
+distintos. El <strong>IMSS ordinario</strong> atiende
+principalmente a personas derechohabientes: trabajadoras
+y trabajadores asegurados, sus familias registradas
+y personas pensionadas. <strong>IMSS-Bienestar</strong>,
+en cambio, atiende a población que
+<strong>no cuenta con seguridad social</strong>.
+</p>
+
+<p>
+La diferencia no es solo de nombre: determina
+quién puede atenderse en cada lugar y bajo
+qué condiciones.
 </p>
 
 </div>
@@ -598,16 +645,23 @@ que no cuentan con seguridad social.
 
 <div class="nota-box reveal">
 
+<small>
+Aclaración importante
+</small>
+
 <h2>
-¿Y qué pasa con la UMF Plus de Ixcotla?
+Es IMSS ordinario, no IMSS-Bienestar
 </h2>
 
 <p>
-La UMF Plus anunciada forma parte del proyecto del IMSS.
-Este modelo busca fortalecer la atención primaria
-de la población derechohabiente. Durante las consultas
-también se habló de ampliar el acceso bajo
-el concepto de Salud Universal.
+Lo que se construye en Ixcotla es una UMF Plus,
+un modelo del IMSS ordinario para personas
+derechohabientes, no una unidad de IMSS-Bienestar.
+Así lo confirmó Antonio Martínez Velázquez,
+vocero del Gobierno del Estado de Tlaxcala, quien
+el 6 de julio de 2026 declaró que se trata de
+"un proyecto del IMSS ordinario que se desarrolla
+conforme a la ley".
 </p>
 
 </div>

@@ -51,22 +51,22 @@ nav{
     left:50%;
     transform:translateX(-50%);
 
-    width:min(1080px,92%);
-    height:64px;
+    width:min(1120px,94%);
+    min-height:64px;
 
     display:flex;
     align-items:center;
     justify-content:space-between;
 
-    padding:0 20px;
+    padding:0 18px;
 
-    background:rgba(255,255,255,.92);
+    background:rgba(255,255,255,.93);
     backdrop-filter:blur(15px);
 
-    border:1px solid #e7e1de;
+    border:1px solid var(--borde);
     border-radius:16px;
 
-    box-shadow:0 8px 30px rgba(0,0,0,.07);
+    box-shadow:0 8px 30px rgba(0,0,0,.06);
 
     z-index:1000;
 }
@@ -74,21 +74,25 @@ nav{
 .logo{
     color:var(--oscuro);
     font-weight:800;
+    white-space:nowrap;
 }
 
 nav ul{
     display:flex;
+    align-items:center;
     list-style:none;
-    gap:3px;
+    gap:2px;
 }
 
 nav a{
-    padding:9px 11px;
+    padding:9px 10px;
 
     border-radius:9px;
 
-    font-size:13px;
+    font-size:12px;
     font-weight:600;
+
+    transition:.25s;
 }
 
 nav li a:hover,
@@ -128,8 +132,8 @@ nav li a.activo{
             rgba(50,28,25,.52) 48%,
             rgba(50,28,25,.08) 100%
         ),
-        url("AQUI_PONES_LA_IMAGEN_DEL_5_DE_JULIO")
-        center 42% / cover no-repeat;
+        url("https://mgmnoticias.mx/storage/articles/cP7YPm2anCwYpS7KzgtNp7L4MFKUWhYB6dZd1dW8.webp")
+        center 35% / cover no-repeat;
 }
 .hero span{
     display:inline-block;
@@ -273,6 +277,14 @@ nav li a.activo{
     color:#ead9d5;
 }
 
+.alerta-texto p{
+    margin-bottom:14px;
+}
+
+.alerta-texto p:last-child{
+    margin-bottom:0;
+}
+
 .versiones{
     padding:85px 0;
 }
@@ -378,7 +390,7 @@ footer{
     transform:none;
 }
 
-@media(max-width:800px){
+@media(max-width:950px){
 
     .menu-toggle{
         display:flex;
@@ -399,7 +411,7 @@ footer{
         background:rgba(255,255,255,.97);
         backdrop-filter:blur(14px);
 
-        border:1px solid #e7e1de;
+        border:1px solid var(--borde);
         border-radius:16px;
 
         box-shadow:0 8px 30px rgba(0,0,0,.1);
@@ -453,6 +465,7 @@ Guadalupe Ixcotla
 <li><a class="activo" href="julio.html">5 de julio</a></li>
 <li><a href="barranca.html">Barranca</a></li>
 <li><a href="presidencia.html">Presidencia</a></li>
+<li><a href="novedades.html">Novedades</a></li>
 </ul>
 
 <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
@@ -590,6 +603,52 @@ durante la intervención.
 </div>
 
 
+<div class="bloque reveal">
+
+<small>
+05
+</small>
+
+<h3>
+Detenciones
+</h3>
+
+<p>
+Durante la confrontación fueron detenidas
+varias personas, entre ellas el entonces
+presidente de comunidad. Días después
+fueron liberadas bajo la condición
+de firmar y no acercarse a los campos
+deportivos.
+</p>
+
+</div>
+
+
+<div class="bloque reveal">
+
+<small>
+06
+</small>
+
+<h3>
+Después de la confrontación
+</h3>
+
+<p>
+Al día siguiente los trabajos se reanudaron
+sin nuevos enfrentamientos; un grupo
+de habitantes se presentó con mantas
+a favor del proyecto. Los defensores
+de los campos deportivos, por su parte,
+presentaron una queja ante la Comisión
+Estatal de Derechos Humanos (CEDH)
+contra policías estatales.
+</p>
+
+</div>
+
+
 </div>
 
 </div>
@@ -605,7 +664,9 @@ durante la intervención.
 ¿Quiénes estaban en el lugar?
 </h2>
 
-<p class="reveal">
+<div class="alerta-texto reveal">
+
+<p>
 Habitantes sostienen que durante
 la intervención había mujeres,
 personas adultas mayores,
@@ -613,6 +674,17 @@ familias y menores de edad,
 por lo que cuestionaron
 el uso de gas y fuerza policial.
 </p>
+
+<p>
+Como resultado de la confrontación,
+medios locales reportaron al menos
+tres personas lesionadas. La zona
+permaneció bajo resguardo de
+corporaciones de seguridad
+para evitar nuevos incidentes.
+</p>
+
+</div>
 
 </div>
 

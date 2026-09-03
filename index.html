@@ -55,19 +55,19 @@
             top:18px;
             left:50%;
             transform:translateX(-50%);
-            width:min(1080px, 92%);
-            height:64px;
+            width:min(1120px,94%);
+            min-height:64px;
 
             display:flex;
             align-items:center;
             justify-content:space-between;
 
-            padding:0 20px;
+            padding:0 18px;
 
-            background:rgba(255,255,255,.90);
-            backdrop-filter:blur(14px);
+            background:rgba(255,255,255,.93);
+            backdrop-filter:blur(15px);
 
-            border:1px solid rgba(220,224,228,.9);
+            border:1px solid var(--borde);
             border-radius:16px;
 
             box-shadow:0 8px 30px rgba(0,0,0,.06);
@@ -75,24 +75,24 @@
         }
 
         .logo{
-            font-size:17px;
             font-weight:800;
             color:var(--azul-oscuro);
+            white-space:nowrap;
         }
 
         nav ul{
             display:flex;
             align-items:center;
-            gap:4px;
+            gap:2px;
             list-style:none;
         }
 
         nav ul a{
             display:block;
-            padding:9px 12px;
+            padding:9px 10px;
             border-radius:9px;
 
-            font-size:13px;
+            font-size:12px;
             font-weight:600;
             color:#4d5960;
 
@@ -135,21 +135,14 @@
             padding:140px 0 80px;
 
             background:
-                radial-gradient(
-                    circle at 85% 25%,
-                    rgba(49,91,112,.13),
-                    transparent 28%
-                ),
-                radial-gradient(
-                    circle at 75% 75%,
-                    rgba(214,122,70,.12),
-                    transparent 27%
-                ),
                 linear-gradient(
-                    135deg,
-                    #fbfcfc,
-                    #f2f5f6
-                );
+                    100deg,
+                    rgba(18,32,39,.90) 0%,
+                    rgba(18,32,39,.62) 45%,
+                    rgba(18,32,39,.22) 100%
+                ),
+                url("https://i.pinimg.com/736x/4f/c3/b7/4fc3b7e135b815ab9e2778b9077fdaf9.jpg")
+                center/cover no-repeat;
 
             overflow:hidden;
         }
@@ -170,9 +163,10 @@
 
             margin-bottom:20px;
 
-            background:var(--azul-claro);
-            color:var(--azul);
+            background:rgba(255,255,255,.13);
+            color:white;
 
+            border:1px solid rgba(255,255,255,.22);
             border-radius:30px;
 
             font-size:12px;
@@ -192,7 +186,7 @@
 
             margin-bottom:22px;
 
-            color:var(--azul-oscuro);
+            color:white;
 
             font-size:clamp(50px, 7vw, 78px);
             line-height:.98;
@@ -207,7 +201,7 @@
         .hero-texto p{
             max-width:610px;
 
-            color:var(--gris);
+            color:#d8e2e6;
             font-size:18px;
             line-height:1.65;
         }
@@ -322,27 +316,6 @@
             width:240px;
 
             animation-delay:2.4s;
-        }
-
-        .circulo{
-            position:absolute;
-
-            top:85px;
-            left:105px;
-
-            width:250px;
-            height:250px;
-
-            border-radius:50%;
-
-            background:
-                linear-gradient(
-                    145deg,
-                    rgba(49,91,112,.20),
-                    rgba(214,122,70,.13)
-                );
-
-            filter:blur(1px);
         }
 
         /* =========================
@@ -653,7 +626,7 @@
            RESPONSIVE
         ========================= */
 
-        @media(max-width:900px){
+        @media(max-width:950px){
 
             .menu-toggle{
                 display:flex;
@@ -674,7 +647,7 @@
                 background:rgba(255,255,255,.97);
                 backdrop-filter:blur(14px);
 
-                border:1px solid rgba(220,224,228,.9);
+                border:1px solid var(--borde);
                 border-radius:16px;
 
                 box-shadow:0 8px 30px rgba(0,0,0,.1);
@@ -761,6 +734,7 @@
             <li><a href="julio.html">5 de julio</a></li>
             <li><a href="barranca.html">Barranca</a></li>
             <li><a href="presidencia.html">Presidencia</a></li>
+            <li><a href="novedades.html">Novedades</a></li>
         </ul>
 
         <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
@@ -808,8 +782,6 @@
 
 
             <div class="hero-visual">
-
-                <div class="circulo"></div>
 
                 <div class="tarjeta-flotante t1">
 
@@ -905,8 +877,17 @@
 
                 <p>
                     Cada sección reúne los puntos principales del proyecto,
-                    las asambleas, los hechos del 5 de julio
-                    y los temas relacionados con Barranca Briones.
+                    las asambleas, los hechos del 5 de julio,
+                    los temas relacionados con Barranca Briones
+                    y la situación de la Presidencia de Comunidad.
+                </p>
+
+                <p>
+                    También encontrarás una sección de
+                    <strong>información reciente</strong>,
+                    que se irá actualizando conforme surjan
+                    novedades confirmadas sobre cualquiera
+                    de estos temas.
                 </p>
 
             </div>
@@ -1078,6 +1059,52 @@
                 </a>
 
 
+                <a href="presidencia.html" class="menu-card reveal">
+
+                    <div class="numero">
+                        07
+                    </div>
+
+                    <h3>
+                        Presidencia de Comunidad
+                    </h3>
+
+                    <p>
+                        La decisión de la Asamblea, la impugnación
+                        legal y la discusión sobre usos y costumbres
+                        en torno a la permanencia en el cargo.
+                    </p>
+
+                    <strong>
+                        Ver presidencia →
+                    </strong>
+
+                </a>
+
+
+                <a href="novedades.html"
+                   class="menu-card menu-card-destacada reveal">
+
+                    <div class="numero">
+                        ★
+                    </div>
+
+                    <h3>
+                        Información reciente
+                    </h3>
+
+                    <p>
+                        Las actualizaciones más nuevas relacionadas
+                        con el proyecto, la comunidad y el territorio.
+                    </p>
+
+                    <strong>
+                        Ver lo último →
+                    </strong>
+
+                </a>
+
+
             </div>
 
         </div>
@@ -1170,7 +1197,7 @@
 
     <script>
 
-        /* Menú de hamburguesa */
+        /* Menú móvil */
 
         const menuToggle =
             document.getElementById("menuToggle");

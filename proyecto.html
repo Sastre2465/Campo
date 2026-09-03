@@ -55,22 +55,22 @@ nav{
     top:18px;
     left:50%;
     transform:translateX(-50%);
-    width:min(1080px,92%);
-    height:64px;
+    width:min(1120px,94%);
+    min-height:64px;
 
     display:flex;
     align-items:center;
     justify-content:space-between;
 
-    padding:0 20px;
+    padding:0 18px;
 
-    background:rgba(255,255,255,.92);
+    background:rgba(255,255,255,.93);
     backdrop-filter:blur(15px);
 
-    border:1px solid rgba(225,228,230,.9);
+    border:1px solid var(--borde);
     border-radius:16px;
 
-    box-shadow:0 8px 30px rgba(0,0,0,.07);
+    box-shadow:0 8px 30px rgba(0,0,0,.06);
 
     z-index:1000;
 }
@@ -78,22 +78,24 @@ nav{
 .logo{
     font-weight:800;
     color:var(--azul-oscuro);
+    white-space:nowrap;
 }
 
 nav ul{
     display:flex;
-    gap:3px;
+    align-items:center;
+    gap:2px;
     list-style:none;
 }
 
 nav ul a{
     display:block;
-    padding:9px 11px;
+    padding:9px 10px;
     border-radius:9px;
 
     color:#4f5c63;
 
-    font-size:13px;
+    font-size:12px;
     font-weight:600;
 
     transition:.25s;
@@ -144,7 +146,7 @@ nav ul a.activo{
         rgba(19,43,54,.76) 45%,
         rgba(19,43,54,.18) 100%
     ),
-    url("https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1800&q=85")
+    url("https://estilotlax.com/wp-content/uploads/2026/06/IMG-20260610-WA0121.jpg")
     center/cover no-repeat;
 }
 
@@ -249,6 +251,106 @@ nav ul a.activo{
 
 .intro-texto p{
     color:var(--gris);
+}
+
+/* EL LUGAR */
+
+.lugar{
+    padding:85px 0;
+
+    background:white;
+}
+
+.lugar-grid{
+    display:grid;
+    grid-template-columns:1.15fr .85fr;
+    gap:50px;
+
+    align-items:center;
+}
+
+.lugar-texto small{
+    color:var(--naranja);
+
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:1.3px;
+}
+
+.lugar-texto h2{
+    margin:10px 0 16px;
+
+    color:var(--azul-oscuro);
+
+    font-size:38px;
+    line-height:1.15;
+}
+
+.lugar-texto p{
+    margin-bottom:14px;
+
+    color:var(--gris);
+}
+
+.lugar-card{
+    padding:32px;
+
+    background:var(--azul-oscuro);
+    color:white;
+
+    border-radius:22px;
+
+    box-shadow:var(--sombra);
+}
+
+.lugar-card small{
+    color:#b8ccd3;
+
+    font-size:12px;
+    font-weight:700;
+
+    text-transform:uppercase;
+    letter-spacing:1px;
+}
+
+.lugar-card h3{
+    margin:10px 0 16px;
+
+    font-size:22px;
+}
+
+.lugar-card ul{
+    display:flex;
+    flex-direction:column;
+    gap:13px;
+
+    list-style:none;
+}
+
+.lugar-card li{
+    position:relative;
+
+    padding-left:18px;
+
+    color:#d5e0e5;
+
+    font-size:14px;
+    line-height:1.55;
+}
+
+.lugar-card li::before{
+    content:"";
+
+    position:absolute;
+    top:8px;
+    left:0;
+
+    width:6px;
+    height:6px;
+
+    border-radius:50%;
+
+    background:var(--naranja);
 }
 
 /* COMPONENTES */
@@ -523,7 +625,7 @@ footer{
     transform:translateY(0);
 }
 
-@media(max-width:850px){
+@media(max-width:950px){
 
     .menu-toggle{
         display:flex;
@@ -561,6 +663,7 @@ footer{
     }
 
     .intro-grid,
+    .lugar-grid,
     .grid{
         grid-template-columns:1fr;
     }
@@ -610,6 +713,7 @@ Guadalupe Ixcotla
 <li><a href="julio.html">5 de julio</a></li>
 <li><a href="barranca.html">Barranca</a></li>
 <li><a href="presidencia.html">Presidencia</a></li>
+<li><a href="novedades.html">Novedades</a></li>
 </ul>
 
 <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
@@ -683,6 +787,86 @@ cuidado infantil y espacios complementarios.
 El objetivo oficial es ampliar la atención
 de salud en la región.
 </p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="lugar">
+
+<div class="contenedor lugar-grid">
+
+<div class="lugar-texto reveal">
+
+<small>
+El terreno
+</small>
+
+<h2>
+¿Dónde se plantea construir?
+</h2>
+
+<p>
+El predio donde se busca levantar el CECI y otras obras
+del proyecto integral forma parte de la Barranca Briones,
+dentro de la cuenca de los ríos Zahuapan-Atoyac.
+</p>
+
+<p>
+Actualmente ahí se ubica la Unidad Deportiva de
+Guadalupe Ixcotla, el único espacio recreativo y
+deportivo de la comunidad, usado por niñas, niños,
+jóvenes y personas adultas mayores tanto de Ixcotla
+como de Santa Cruz Guadalupe.
+</p>
+
+<p>
+Habitantes de la comunidad señalan que, antes de
+convertirse en campos deportivos, ese terreno era
+conocido como <strong>"la Barranca Ancha"</strong>,
+un nombre que para ellos refleja el origen natural
+del lugar como zona de barranca y no como un terreno
+pensado para construcción.
+</p>
+
+</div>
+
+
+<div class="lugar-card reveal">
+
+<small>
+Por qué preocupa
+</small>
+
+<h3>
+Terreno de barranca
+</h3>
+
+<ul>
+
+<li>
+Un decreto publicado el 9 de julio de 2026
+modificó el uso de suelo, de exclusivamente
+deportivo a la construcción de unidades
+médicas y una guardería.
+</li>
+
+<li>
+El IMSS ha respondido que no cuenta con la
+Manifestación de Impacto Ambiental (MIA)
+para la obra.
+</li>
+
+<li>
+Habitantes han solicitado, sin recibir
+respuesta completa, los estudios de suelo,
+agua y drenaje del predio.
+</li>
+
+</ul>
 
 </div>
 
